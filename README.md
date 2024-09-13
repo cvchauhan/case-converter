@@ -2,9 +2,9 @@
 
 Change case functions for all cases in TypeScript and JavaScript.
 Combined version of all [`case-converters`](https://github.com/cvchauhan/case-converter) methods, so you do not need to install them separately.
-ESM and CJS bundles are included, also backwards compatible with case-converters@1.0.0.
+ESM and CJS bundles are included, also backwards compatible with case-converters@3.0.1.
 
-`case-converters@1.0.0` which can be used to access all methods.
+`case-converters@3.0.1` which can be used to access all methods.
 
 ## Usage
 
