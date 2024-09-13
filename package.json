@@ -1,0 +1,46 @@
+{
+  "name": "case-converter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "keywords": [
+    "camel",
+    "capital",
+    "constant",
+    "dot",
+    "no",
+    "pascal",
+    "path",
+    "sentence",
+    "snake",
+    "train",
+    "kebab",
+    "sponge",
+    "swap",
+    "title",
+    "upper",
+    "localeUpper",
+    "lower",
+    "localeLower",
+    "lowerFirst",
+    "upperFirst",
+    "isUpper",
+    "isLower"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^29.5.13",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.6.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cvchauhan/case-converter"
+  }
+}
