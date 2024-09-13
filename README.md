@@ -1,44 +1,44 @@
-# case-converter
+# case-converters
 
 Change case functions for all cases in TypeScript and JavaScript.
-Combined version of all [`case-converter`](https://github.com/cvchauhan/case-converter) methods, so you do not need to install them separately.
-ESM and CJS bundles are included, also backwards compatible with case-converter@1.0.0.
+Combined version of all [`case-converters`](https://github.com/cvchauhan/case-converter) methods, so you do not need to install them separately.
+ESM and CJS bundles are included, also backwards compatible with case-converters@1.0.0.
 
-`case-converter@1.0.0` which can be used to access all methods.
+`case-converters@1.0.0` which can be used to access all methods.
 
 ## Usage
 
 ```shell script
-npm install --save case-converter
+npm install --save case-converters
 ```
 #### javascript
 
 ```javascript
 
-const { camel, upper } from 'case-converter';
+const { camel, upper } from 'case-converters';
 camel('test string'); // testString
 upper('test string'); // TEST STRING
 ```
 
 ### Browser / ESM
 ```ts
-import { Case } from 'case-converter';
+import { Case } from 'case-converters';
 const camel = Case.camel('test string'); // testString
 const upper = Case.upper('test string'); // TEST STRING
 
 
-import { camel, upper, ... } from 'case-converter';
+import { camel, upper, ... } from 'case-converters';
 const camel = camel('test string'); // testString
 const upper = upper('test string'); // TEST STRING
 ```
 
 ### Node.js
 ```ts
-const { Case } = require('case-converter');
+const { Case } = require('case-converters');
 const camel = Case.camel('foo-bar'); // fooBar
 const snake = Case.snake('fooBar'); // foo_bar
 
-const { camel, snake } = require('case-converter');
+const { camel, snake } = require('case-converters');
 const camel = camel('foo-bar'); // fooBar
 const snake = snake('fooBar'); // foo_bar
 ```
@@ -51,7 +51,7 @@ const snake = snake('fooBar'); // foo_bar
 
 ### Class based usage
 ```ts
-import { Case } from 'case-converter';
+import { Case } from 'case-converters';
 
 const str = 'test string';
 
@@ -81,7 +81,7 @@ isLower     = Case.isLower(str);             // true
 
 ### Function based usage
 ```ts
-import { camel, upper, ... } from 'case-converter';
+import { camel, upper, ... } from 'case-converters';
 
 const str = 'test string';
 
