@@ -4,10 +4,28 @@
 export class Case {
   static camel(str: string): string {
     return str
-      .replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, (match, index) =>
-        index === 0 ? match.toLowerCase() : match.toUpperCase()
-      )
-      .replace(/\s+/g, "");
+    .toLowerCase()
+    .replace(/([-_\s][a-z])/g, (group) => group.toUpperCase().replace('-', '').replace('_', '').replace(' ', ''));
+  }
+
+  static objectToCamel(input: any): any {
+    if (typeof input === 'string') {
+      // Recursively process each element if it's an array
+      return this.camel(input);
+    } else if (Array.isArray(input)) {
+      // Recursively process each element if it's an array
+      return input.map((item) => Case.objectToCamel(item));
+    } else if (input !== null && typeof input === 'object') {
+      // Recursively process each key-value pair if it's an object
+      return Object.keys(input).reduce((acc, key) => {
+        const camelKey = this.camel(key);
+        acc[camelKey] = input[key]; // Do not modify the value, only change the key
+        if (typeof input[key] === 'object' && input[key] !== null) {
+          acc[camelKey] = Case.objectToCamel(input[key]); // Recursively handle nested objects/arrays
+        }
+        return acc;
+      }, {} as any);
+    }    
   }
 
   static capital(str: string): string {
@@ -59,8 +77,9 @@ export class Case {
     let upper = true;
     return str
       .split('')
-      .map(char => {
-        if (char.match(/[a-zA-Z]/)) { // Only change case for alphabetic characters
+      .map((char) => {
+        if (char.match(/[a-zA-Z]/)) {
+          // Only change case for alphabetic characters
           const result = upper ? char.toUpperCase() : char.toLowerCase();
           upper = !upper; // Toggle the case for the next character
           return result;
@@ -114,8 +133,12 @@ export class Case {
 }
 
 // Exporting functions directly
-export function camel(str: string): string {
-  return Case.camel(str);
+export function camel(str: any): any {
+  return Case.objectToCamel(str);
+}
+
+export function objectToCamel(obj: Record<string, any>): Record<string, any> {
+  return Case.objectToCamel(obj);
 }
 
 export function capital(str: string): string {

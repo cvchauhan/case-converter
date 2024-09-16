@@ -9,6 +9,10 @@
     "test": "jest"
   },
   "keywords": [
+    "object",
+    "object case converter",
+    "javascript",
+    "typescript",
     "camel",
     "capital",
     "constant",
