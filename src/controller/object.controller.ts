@@ -14,6 +14,10 @@ export class CaseObj {
   static objToConstant(input: any): any {
     return convertKeysToCase(input, "constant");
   }
+
+  static objToNot(input: any): any {
+    return convertKeysToCase(input, "not");
+  }
 }
 
 export function camel(obj: Record<string, any>): Record<string, any> {
