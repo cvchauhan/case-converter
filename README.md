@@ -36,7 +36,23 @@ const input = [
       { 'user_name': 'Bob' }
     ]
 Case.objToCamel(input)
-const { objToCamel, objToCapital, objToConstant } = require('case-converters');
+const { 
+  objToCamel, 
+  objToCapital, 
+  objToConstant,
+  objToNot,
+  objToPascal,
+  objToPath,
+  objToSentence,
+  objToSnake,
+  objToTrain,
+  objToKebap,
+  objToSponge,
+  objToSwap,
+  objToTitle,
+  objToUpper,
+  objToLower
+} = require('case-converters');
 objToCamel(input)
 /* 
     [
