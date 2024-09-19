@@ -18,37 +18,26 @@ export class Case {
     return pieces.join(" ");
   }
 
-  static constant(str: string): string {
-    return str.toUpperCase().replace(/\s+/g, "_");
-  }
+  static constant = (str: string): string => str.toUpperCase().replace(/\s+/g, "_");
 
   static dot(str: string): string {
-    return str.toLowerCase().replace(/\s+/g, ".");
+    return str.toLowerCase().replace(/([-_\s][a-z])/g, (group) =>
+      group.replace("-", ".").replace("_", ".").replace(" ", ".")
+    );
   }
 
-  static no(str: string): string {
-    return str.toLowerCase();
-  }
+  static no = (str: string): string => str.toLowerCase();
 
   static pascal(str: string): string {
     return str
       .toLowerCase()
-      .replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, (match) => match.toUpperCase())
-      .replace(/\s+/g, "");
-  }
+      .replace(/(?:_| |\b)(\w)/g, (_, char) => char.toUpperCase()) // Convert first letter after space/underscore to uppercase
+      .replace(/[_\s]+/g, ""); // Remove underscores and spaces
+  }  
 
-  static path(str: string): string {
-    return str.toLowerCase().replace(/\s+/g, "/");
-  }
-
-  static sentence(str: string): string {
-    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
-  }
-
-  static snake(str: string): string {
-    return str.toLowerCase().replace(/\s+/g, "_");
-  }
-
+  static path = (str: string): string => str.toLowerCase().replace(/[_\s]+/g, "/");
+  static sentence = (str: string): string => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+  static snake = (str: string): string => str.toLowerCase().replace(/\s+/g, "_");
   static train(str: string): string {
     return str
       .replace(/\s+/g, "-")
