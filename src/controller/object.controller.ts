@@ -1,21 +1,42 @@
-
-// Exporting the Case class
 import { convertKeysToCase } from "../helper/converter";
+
+type CaseType =
+  | "camel"
+  | "capital"
+  | "constant"
+  | "not"
+  | "dot"
+  | "pascal"
+  | "path"
+  | "sentence"
+  | "snake"
+  | "train"
+  | "kebap"
+  | "sponge"
+  | "swap"
+  | "title"
+  | "upper"
+  | "lower";
+
 export class CaseObj {
-  static objToCamel = (input: any): Function => convertKeysToCase(input, "camel");
-  static objToCapital = (input: any): Function => convertKeysToCase(input, "capital");
-  static objToConstant = (input: any): Function => convertKeysToCase(input, "constant");
-  static objToNot = (input: any): Function => convertKeysToCase(input, "not");
-  static objToDot = (input: any): Function => convertKeysToCase(input, "dot");
-  static objToPascal = (input: any): Function => convertKeysToCase(input, "pascal");
-  static objToPath = (input: any): Function => convertKeysToCase(input, "path");
-  static objToSentence = (input: any): Function => convertKeysToCase(input, "sentence");
-  static objToSnake = (input: any): Function => convertKeysToCase(input, "snake");
-  static objToTrain = (input: any): Function => convertKeysToCase(input, "train");
-  static objToKebap = (input: any): Function => convertKeysToCase(input, "kebap");
-  static objToSponge = (input: any): Function => convertKeysToCase(input, "sponge");
-  static objToSwap = (input: any): Function => convertKeysToCase(input, "swap");
-  static objToTitle = (input: any): Function => convertKeysToCase(input, "title");
-  static objToUpper = (input: any): Function => convertKeysToCase(input, "upper");
-  static objToLower = (input: any): Function => convertKeysToCase(input, "lower"); 
+  private static createMethod(caseType: CaseType) {
+    return (input: any): any => convertKeysToCase(input, caseType);
+  }
+
+  static objToCamel = this.createMethod("camel");
+  static objToCapital = this.createMethod("capital");
+  static objToConstant = this.createMethod("constant");
+  static objToNot = this.createMethod("not");
+  static objToDot = this.createMethod("dot");
+  static objToPascal = this.createMethod("pascal");
+  static objToPath = this.createMethod("path");
+  static objToSentence = this.createMethod("sentence");
+  static objToSnake = this.createMethod("snake");
+  static objToTrain = this.createMethod("train");
+  static objToKebap = this.createMethod("kebap");
+  static objToSponge = this.createMethod("sponge");
+  static objToSwap = this.createMethod("swap");
+  static objToTitle = this.createMethod("title");
+  static objToUpper = this.createMethod("upper");
+  static objToLower = this.createMethod("lower");
 }

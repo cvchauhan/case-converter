@@ -1,44 +1,49 @@
 # case-converters
 
-Change case functions for all cases in TypeScript and JavaScript.
-Combined version of all [`case-converters`](https://github.com/cvchauhan/case-converter) methods, so you do not need to install them separately.
-ESM and CJS bundles are included, also backwards compatible with case-converters@3.0.1.
+A comprehensive utility for converting strings and object keys between various case styles in TypeScript and JavaScript.
 
-`case-converters@4.0.0` which can be used to access all methods.
-Added Object convertore for camel, constan and capital
-you can use this 3 methods to convert object key in case:
-objToCamel(obj or array)
-objToConstant(obj or array)
-objToCapital(obj or array)
-## Usage
+- Supports all popular case styles: camel, capital, constant, dot, no, pascal, path, sentence, snake, train, kebab, sponge, swap, title, upper, lower, and more.
+- Works with both strings and object keys (including arrays of objects).
+- ESM and CommonJS compatible.
 
-```shell script
+## Installation
+
+```sh
 npm install --save case-converters
 ```
 
-#### javascript
+## Usage
 
-```javascript
+### String Case Conversion
 
-const { camel, upper } from 'case-converters';
-camel('test string'); // testString
-upper('test string'); // TEST STRING
+#### CommonJS
+
+```js
+const { camel, upper } = require("case-converters");
+
+console.log(camel("test string")); // testString
+console.log(upper("test string")); // TEST STRING
 ```
 
-### Browser / ESM
+#### ES Modules / TypeScript
 
 ```ts
-import { Case } from 'case-converters';
-const camel = Case.camel('test string'); // testString
-const upper = Case.upper('test string'); // TEST STRING
-const input = [
-      { 'user_name': 'Alice' },
-      { 'user_name': 'Bob' }
-    ]
-Case.objToCamel(input)
-const { 
-  objToCamel, 
-  objToCapital, 
+import { Case } from "case-converters";
+
+console.log(Case.camel("test string")); // testString
+console.log(Case.upper("test string")); // TEST STRING
+```
+
+### Object Key Case Conversion
+
+Convert all keys in an object or array of objects to a specific case style.
+
+```js
+const input = [{ user_name: "Alice" }, { user_name: "Bob" }];
+
+const {
+  objToCamel,
+  objToCapital,
   objToConstant,
   objToNot,
   objToPascal,
@@ -51,115 +56,140 @@ const {
   objToSwap,
   objToTitle,
   objToUpper,
-  objToLower
-} = require('case-converters');
-objToCamel(input)
-/* 
-    [
-      { userName: 'Alice' },
-      { userName: 'Bob' }
-    ]
-*/
-objToCapital(input)
-/* 
-    [
-      { Username: 'Alice' },
-      { Username: 'Bob' }
-    ]
-*/
-objToConstant(input)
-/* 
-    [
-      { USERNAME: 'Alice' },
-      { USERNAME: 'Bob' }
-    ]
-*/
+  objToLower,
+} = require("case-converters");
 
-import { camel, upper, ... } from 'case-converters';
-const camel = camel('test string'); // testString
-const upper = upper('test string'); // TEST STRING
+console.log(objToCamel(input));
+// [
+//   { userName: 'Alice' },
+//   { userName: 'Bob' }
+// ]
+
+console.log(objToCapital(input));
+// [
+//   { UserName: 'Alice' },
+//   { UserName: 'Bob' }
+// ]
+
+console.log(objToConstant(input));
+// [
+//   { USERNAME: 'Alice' },
+//   { USERNAME: 'Bob' }
+// ]
 ```
 
-### Node.js
+### API Reference
+
+#### String Methods
+
+You can use either the `Case` class or direct function imports:
 
 ```ts
-const { Case } = require("case-converters");
-const camel = Case.camel("foo-bar"); // fooBar
-const snake = Case.snake("fooBar"); // foo_bar
+import {
+  camel,
+  capital,
+  constant,
+  dot,
+  no,
+  pascal,
+  path,
+  sentence,
+  snake,
+  train,
+  kebap,
+  sponge,
+  swap,
+  title,
+  upper,
+  localeUpper,
+  lower,
+  localeLower,
+  lowerFirst,
+  upperFirst,
+  isUpper,
+  isLower,
+} from "case-converters";
 
-const { camel, snake } = require("case-converters");
-const camel = camel("foo-bar"); // fooBar
-const snake = snake("fooBar"); // foo_bar
+const str = "test string";
+
+camel(str); // testString
+capital(str); // Test String
+constant(str); // TEST_STRING
+dot(str); // test.string
+no(str); // test string
+pascal(str); // TestString
+path(str); // test/string
+sentence(str); // Test string
+snake(str); // test_string
+train(str); // Test-String
+kebap(str); // test-string
+sponge(str); // TeSt StRiNg
+swap(str); // TEST STRING
+title(str); // Test String
+upper(str); // TEST STRING
+localeUpper(str, "en"); // TEST STRING
+lower(str); // test string
+localeLower(str, "en"); // test string
+lowerFirst(str); // test string
+upperFirst(str); // Test string
+isUpper(str); // false
+isLower(str); // true
+```
+
+Or use the `Case` class:
+
+```ts
+import { Case } from "case-converters";
+
+Case.camel(str);
+Case.capital(str);
+// ...and so on
+```
+
+#### Object Key Methods
+
+All object key conversion methods accept either an object or an array of objects.
+
+- `objToCamel`
+- `objToCapital`
+- `objToConstant`
+- `objToNot`
+- `objToDot`
+- `objToPascal`
+- `objToPath`
+- `objToSentence`
+- `objToSnake`
+- `objToTrain`
+- `objToKebap`
+- `objToSponge`
+- `objToSwap`
+- `objToTitle`
+- `objToUpper`
+- `objToLower`
+
+Example:
+
+```js
+const obj = { first_name: "John", last_name: "Doe" };
+console.log(objToCamel(obj)); // { firstName: 'John', lastName: 'Doe' }
 ```
 
 ## Links
 
 - **Original project:** https://github.com/cvchauhan/case-converter
 
-## Methods
+## License
 
-### Class based usage
+ISC © Chirag Chauhan
 
-```ts
-import { Case } from "case-converters";
+## Contact
 
-const str = "test string";
+-
 
-camel = Case.camel(str); // testString
-capital = Case.capital(str); // Test String
-constant = Case.constant(str); // TEST_STRING
-dot = Case.dot(str); // test.string
-no = Case.no(str); // test string
-pascal = Case.pascal(str); // TestString
-path = Case.path(str); // test/string
-sentence = Case.sentence(str); // Test string
-snake = Case.snake(str); // test_string
-train = Case.train(str); // Test-String
-kebab = Case.kebab(str); // test-string
-sponge = Case.sponge(str); // TeSt StRiNg
-swapCase = Case.swap(str); // TEST STRING
-title = Case.title(str); // Test String
-uppper = Case.upper(str); // TEST STRING
-localeUpper = Case.localeUpper(str, "en"); // TEST STRING
-lower = Case.lower(str); // test string
-localeLower = Case.localeLower(str, "en"); // test string
-lowerFirst = Case.lowerFirst(str); // test string
-upperFirst = Case.upperFirst(str); // Test string
-isUpper = Case.isUpper(str); // false
-isLower = Case.isLower(str); // true
+# prefix version changes
+
+```bash
+git commit -m "fix: correct typo in helper function"       # → Patch bump
+git commit -m "feat: add new kebap case converter"         # → Minor bump
+git commit -m "feat!: refactor API - BREAKING CHANGE"      # → Major bump
 ```
-
-### Function based usage
-
-```ts
-import { camel, upper, ... } from 'case-converters';
-
-const str = 'test string';
-
-camel       = camel(str);               // testString
-capital     = capital(str);             // Test String
-constant    = constant(str);            // TEST_STRING
-dot         = dot(str);                 // test.string
-no          = no(str);                  // test string
-pascal      = pascal(str);              // TestString
-path        = path(str);                // test/string
-sentence    = sentence(str);            // Test string
-snake       = snake(str);               // test_string
-train       = train(str);               // Test-String
-kebab       = kebab(str);               // test-string
-sponge      = sponge(str);              // TeSt StRiNg
-swap        = swap(str);                // TEST STRING
-title       = title(str);               // Test String
-uppper      = upper(str);               // TEST STRING
-localeUpper = localeUpper(str, 'en');   // TEST STRING
-lower       = lower(str);               // test string
-localeLower = localeLower(str, 'en');   // test string
-lowerFirst  = lowerFirst(str);          // test string
-upperFirst  = upperFirst(str);          // Test string
-isUpper     = isUpper(str);             // false
-isLower     = isLower(str);             // true
-```
-
-## Meta
-
-- chiragvchauhan93@gmail.com
