@@ -25,6 +25,12 @@ jobs:
       - name: Run tests
         run: npm test
 
+      - name: Build package
+        run: npm run build
+
+      - name: Bump patch version
+        run: npm version patch --no-git-tag-version
+
       - name: Publish to NPM
         run: npm publish
         env:
