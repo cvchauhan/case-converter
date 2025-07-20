@@ -185,11 +185,3 @@ ISC © Chirag Chauhan
 ## Contact
 
 -
-
-# prefix version changes
-
-```bash
-git commit -m "fix: correct typo in helper function"       # → Patch bump
-git commit -m "feat: add new kebap case converter"         # → Minor bump
-git commit -m "feat!: refactor API - BREAKING CHANGE"      # → Major bump
-```

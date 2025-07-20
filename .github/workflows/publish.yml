@@ -1,4 +1,4 @@
-name: Auto Bump and Publish
+name: Test and Publish to NPM
 
 on:
   push:
@@ -6,11 +6,11 @@ on:
       - master
 
 jobs:
-  release:
+  publish:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Setup Node.js
@@ -24,15 +24,6 @@ jobs:
 
       - name: Run tests
         run: npm test
-
-      - name: Bump version and push tag
-        uses: phips28/gh-action-bump-version@main # or use commit SHA here
-        with:
-          tag-prefix: "v"
-          default: patch
-          commit-message: "ci(release): bump version to {{version}}"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish to NPM
         run: npm publish
