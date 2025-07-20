@@ -20,7 +20,12 @@ type CaseType =
 
 export class CaseObj {
   private static createMethod(caseType: CaseType) {
-    return (input: any): any => convertKeysToCase(input, caseType);
+    return (
+      input: Record<string, unknown> | Record<string, unknown>[]
+    ): Record<string, unknown> | Record<string, unknown>[] =>
+      convertKeysToCase(input, caseType) as
+        | Record<string, unknown>
+        | Record<string, unknown>[];
   }
 
   static objToCamel = this.createMethod("camel");
