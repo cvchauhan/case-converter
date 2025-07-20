@@ -1,22 +1,34 @@
 import { getCaseConverter } from "./getcaseconverter";
 
-export function convertKeysToCase(input: any, caseType: string): any {
+export function convertKeysToCase(input: unknown, caseType: string): unknown {
   const caseConverter = getCaseConverter(caseType);
+
   if (typeof input === "string") {
-    // Recursively process each element if it's an array
     return caseConverter(input);
-  } else if (Array.isArray(input)) {
-    // Recursively process each element if it's an array
-    return input.map((item) => convertKeysToCase(item, caseType));
-  } else if (input !== null && typeof input === "object") {
-    // Recursively process each key-value pair if it's an object
-    return Object.keys(input).reduce((acc, key) => {
-      const changeKey = caseConverter(key);
-      acc[changeKey] = input[key]; // Do not modify the value, only change the key
-      if (typeof input[key] === "object" && input[key] !== null) {
-        acc[changeKey] = convertKeysToCase(input[key], caseType); // Recursively handle nested objects/arrays
-      }
-      return acc;
-    }, {} as any);
   }
+
+  if (Array.isArray(input)) {
+    return input.map((item) => convertKeysToCase(item, caseType));
+  }
+
+  if (input !== null && typeof input === "object") {
+    return Object.entries(input as Record<string, unknown>).reduce(
+      (acc, [key, value]) => {
+        const changedKey = caseConverter(key);
+
+        // Only recursively convert if value is object or array
+        if (typeof value === "object" && value !== null) {
+          acc[changedKey] = convertKeysToCase(value, caseType);
+        } else {
+          acc[changedKey] = value;
+        }
+
+        return acc;
+      },
+      {} as Record<string, unknown>
+    );
+  }
+
+  // If input is primitive (number, boolean, null, undefined, symbol, etc.)
+  return input;
 }

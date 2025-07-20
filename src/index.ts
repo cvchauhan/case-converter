@@ -1,15 +1,13 @@
-// index.ts
-
 import { convertKeysToCase } from "./helper/converter";
 import { Case } from "./controller/string.controller";
 import { CaseObj } from "./controller/object.controller";
 
 // ----------------------
-// Primitive string functions
+// Primitive string functions (inferred with correct types)
 // ----------------------
 
-const stringCaseMap: Record<string, (str: string, ...args: any[]) => any> = {
-  camel: (str) => convertKeysToCase(str, "camel"),
+const stringCaseMap = {
+  camel: (str: string) => convertKeysToCase(str, "camel") as string,
   capital: Case.capital,
   constant: Case.constant,
   dot: Case.dot,
@@ -31,7 +29,7 @@ const stringCaseMap: Record<string, (str: string, ...args: any[]) => any> = {
   upperFirst: Case.upperFirst,
   isUpper: Case.isUpper,
   isLower: Case.isLower,
-};
+} as const;
 
 export const {
   camel,
@@ -59,13 +57,10 @@ export const {
 } = stringCaseMap;
 
 // ----------------------
-// Object conversion functions
+// Object conversion functions (with proper Record types)
 // ----------------------
 
-const objCaseMap: Record<
-  string,
-  (obj: Record<string, any>) => Record<string, any>
-> = {
+const objCaseMap = {
   objToCamel: CaseObj.objToCamel,
   objToCapital: CaseObj.objToCapital,
   objToConstant: CaseObj.objToConstant,
@@ -82,7 +77,7 @@ const objCaseMap: Record<
   objToTitle: CaseObj.objToTitle,
   objToUpper: CaseObj.objToUpper,
   objToLower: CaseObj.objToLower,
-};
+} as const;
 
 export const {
   objToCamel,

@@ -10,7 +10,7 @@ import {
   kebap,
   localeLower,
   localeUpper,
-  lower
+  lower,
 } from "../src/index";
 import {
   lowerFirst,

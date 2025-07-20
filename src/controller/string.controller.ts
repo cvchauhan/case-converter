@@ -11,8 +11,8 @@ export class Case {
 
   static capital(str: string): string {    
     const pieces = str.split(" ");
-    for (var i = 0; i < pieces.length; i++) {
-      var j = pieces[i].charAt(0).toUpperCase();
+    for (let i = 0; i < pieces.length; i++) {
+      const j = pieces[i].charAt(0).toUpperCase();
       pieces[i] = j + pieces[i].substring(1);
     }
     return pieces.join(" ");
