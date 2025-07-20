@@ -27,7 +27,7 @@ jobs:
 
       - name: Bump version based on commit message
         id: bump
-        uses: phips28/gh-action-bump-version@v10
+        uses: phips28/gh-action-bump-version@v9
         with:
           tag-prefix: "v"
           default: patch
