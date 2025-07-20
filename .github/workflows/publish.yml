@@ -1,4 +1,4 @@
-name: Auto Bump and Publish to NPM
+name: Auto Bump and Publish
 
 on:
   push:
@@ -10,14 +10,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18
-          registry-url: https://registry.npmjs.org/
+          node-version: "18"
+          registry-url: "https://registry.npmjs.org/"
 
       - name: Install dependencies
         run: npm ci
@@ -26,7 +26,7 @@ jobs:
         run: npm test
 
       - name: Bump version and push tag
-        uses: phips28/gh-action-bump-version@v8
+        uses: phips28/gh-action-bump-version@main # or use commit SHA here
         with:
           tag-prefix: "v"
           default: patch
