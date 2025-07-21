@@ -7,7 +7,7 @@ import {
   capital,
   isLower,
   isUpper,
-  kebap,
+  kebab,
   localeLower,
   localeUpper,
   lower,
@@ -81,8 +81,8 @@ describe("StringCaseTransformer", () => {
   });
 
   it("should convert to kebab case", () => {
-    expect(Case.kebap(testString)).toBe("test-string");
-    expect(kebap(testString)).toBe("test-string");
+    expect(Case.kebab(testString)).toBe("test-string");
+    expect(kebab(testString)).toBe("test-string");
   });
 
   it("should convert to sponge case", () => {

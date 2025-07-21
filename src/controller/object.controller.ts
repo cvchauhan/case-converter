@@ -11,7 +11,7 @@ type CaseType =
   | "sentence"
   | "snake"
   | "train"
-  | "kebap"
+  | "kebab"
   | "sponge"
   | "swap"
   | "title"
@@ -38,7 +38,7 @@ export class CaseObj {
   static objToSentence = this.createMethod("sentence");
   static objToSnake = this.createMethod("snake");
   static objToTrain = this.createMethod("train");
-  static objToKebap = this.createMethod("kebap");
+  static objToKebab = this.createMethod("kebab");
   static objToSponge = this.createMethod("sponge");
   static objToSwap = this.createMethod("swap");
   static objToTitle = this.createMethod("title");

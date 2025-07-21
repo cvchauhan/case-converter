@@ -1,4 +1,3 @@
-
 // Exporting the Case class
 export class Case {
   static camel(str: string): string {
@@ -9,7 +8,7 @@ export class Case {
       );
   }
 
-  static capital(str: string): string {    
+  static capital(str: string): string {
     const pieces = str.split(" ");
     for (let i = 0; i < pieces.length; i++) {
       const j = pieces[i].charAt(0).toUpperCase();
@@ -18,12 +17,15 @@ export class Case {
     return pieces.join(" ");
   }
 
-  static constant = (str: string): string => str.toUpperCase().replace(/\s+/g, "_");
+  static constant = (str: string): string =>
+    str.toUpperCase().replace(/\s+/g, "_");
 
   static dot(str: string): string {
-    return str.toLowerCase().replace(/([-_\s][a-z])/g, (group) =>
-      group.replace("-", ".").replace("_", ".").replace(" ", ".")
-    );
+    return str
+      .toLowerCase()
+      .replace(/([-_\s][a-z])/g, (group) =>
+        group.replace("-", ".").replace("_", ".").replace(" ", ".")
+      );
   }
 
   static no = (str: string): string => str.toLowerCase();
@@ -33,18 +35,21 @@ export class Case {
       .toLowerCase()
       .replace(/(?:_| |\b)(\w)/g, (_, char) => char.toUpperCase()) // Convert first letter after space/underscore to uppercase
       .replace(/[_\s]+/g, ""); // Remove underscores and spaces
-  }  
+  }
 
-  static path = (str: string): string => str.toLowerCase().replace(/[_\s]+/g, "/");
-  static sentence = (str: string): string => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
-  static snake = (str: string): string => str.toLowerCase().replace(/\s+/g, "_");
+  static path = (str: string): string =>
+    str.toLowerCase().replace(/[_\s]+/g, "/");
+  static sentence = (str: string): string =>
+    str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+  static snake = (str: string): string =>
+    str.toLowerCase().replace(/\s+/g, "_");
   static train(str: string): string {
     return str
       .replace(/\s+/g, "-")
       .replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, (match) => match.toUpperCase());
   }
 
-  static kebap(str: string): string {
+  static kebab(str: string): string {
     return str.replace(/\s+/g, "-").toLowerCase();
   }
 
