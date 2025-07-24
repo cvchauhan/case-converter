@@ -1,6 +1,6 @@
 {
   "name": "case-converters",
-  "version": "4.2.3",
+  "version": "4.2.4",
   "description": "A modern TypeScript utility to convert strings and object keys between various case styles like camelCase, snake_case, PascalCase, kebab-case, spongeCase, and more.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
