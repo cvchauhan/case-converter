@@ -12,17 +12,26 @@
 `case-converters` is a lightweight yet powerful utility to convert strings and object keys into a wide range of naming conventions — like `camelCase`, `PascalCase`, `snake_case`, `kebab-case`, `Train-Case`, `SpongeCase`, and more.
 
 - ✔ Supports **string** and **object key** transformation
-- ✔ Works with **arrays of objects** too
+- ✔ Works with **arrays of objects**
 - ✔ ESM & CommonJS compatible
 - ✔ 100% written in **TypeScript**
 
 ---
 
-## 🔧 Installation
+## 📚 Table of Contents
 
-```bash
-npm install case-converters
-```
+- [📦 Supported Case Styles](#-supported-case-styles)
+- [🔧 Installation](#-installation)
+- [🚀 Quick Usage](#-quick-usage)
+  - [🔹 String Case Conversion](#-string-case-conversion)
+  - [🔹 Object Key Case Conversion](#-object-key-case-conversion)
+- [📘 API Reference](#-api-reference)
+  - [🔹 String Methods](#-string-methods)
+  - [🔹 Object Key Methods](#-object-key-methods)
+- [🌐 Live Demo](#-live-demo)
+- [🔗 Links](#-links)
+- [📄 License](#-license)
+- [📬 Contact](#-contact)
 
 ---
 
@@ -30,9 +39,14 @@ npm install case-converters
 
 - `camel`, `pascal`, `snake`, `kebab`, `constant`, `dot`, `path`, `title`, `sentence`, `capital`, `train`
 - `sponge`, `swap`, `upper`, `lower`, `no`, `localeUpper`, `localeLower`, `lowerFirst`, `upperFirst`
-- And many more...
+- ... and more!
 
 ---
+
+## 🔧 Installation
+
+````bash
+npm install case-converters
 
 ## 🚀 Quick Usage
 
@@ -45,7 +59,7 @@ const { camel, upper } = require("case-converters");
 
 console.log(camel("test string")); // testString
 console.log(upper("test string")); // TEST STRING
-```
+````
 
 #### ES Modules / TypeScript
 
