@@ -4,48 +4,39 @@
 ![npm downloads](https://img.shields.io/npm/dm/case-converters)
 ![license](https://img.shields.io/npm/l/case-converters)
 
-A comprehensive utility for converting strings and object keys between various case styles in TypeScript and JavaScript.
-
-- Supports all popular case styles: camel, capital, constant, dot, no, pascal, path, sentence, snake, train, kebab, sponge, swap, title, upper, lower, and more.
-- Works with both strings and object keys (including arrays of objects).
-- ESM and CommonJS compatible.
+> ⚠️ **Not to be confused with the deprecated [`case-converter`](https://www.npmjs.com/package/case-converter).**  
+> ✅ `case-converters` is a modern, actively maintained package with full **TypeScript support**, robust **object key transformation**, and support for 15+ **string casing styles**.
 
 ---
 
-## About
+`case-converters` is a lightweight yet powerful utility to convert strings and object keys into a wide range of naming conventions — like `camelCase`, `PascalCase`, `snake_case`, `kebab-case`, `Train-Case`, `SpongeCase`, and more.
 
-`case-converters` is a lightweight and flexible TypeScript/JavaScript utility that helps convert strings and object keys between multiple naming conventions.  
-It's ideal for working with APIs, data formatting, or transforming data across systems with inconsistent casing styles.
-
----
-
-## Table of Contents
-
-- [Installation](#installation)
-- [Usage](#usage)
-  - [String Case Conversion](#string-case-conversion)
-  - [Object Key Case Conversion](#object-key-case-conversion)
-- [API Reference](#api-reference)
-  - [String Methods](#string-methods)
-  - [Object Key Methods](#object-key-methods)
-- [Live Demo](#live-demo)
-- [Links](#links)
-- [License](#license)
-- [Contact](#contact)
+- ✔ Supports **string** and **object key** transformation
+- ✔ Works with **arrays of objects** too
+- ✔ ESM & CommonJS compatible
+- ✔ 100% written in **TypeScript**
 
 ---
 
-## Installation
+## 🔧 Installation
 
-```sh
-npm install --save case-converters
+```bash
+npm install case-converters
 ```
 
 ---
 
-## Usage
+## 📦 Supported Case Styles
 
-### String Case Conversion
+- `camel`, `pascal`, `snake`, `kebab`, `constant`, `dot`, `path`, `title`, `sentence`, `capital`, `train`
+- `sponge`, `swap`, `upper`, `lower`, `no`, `localeUpper`, `localeLower`, `lowerFirst`, `upperFirst`
+- And many more...
+
+---
+
+## 🚀 Quick Usage
+
+### 🔹 String Case Conversion
 
 #### CommonJS
 
@@ -67,41 +58,24 @@ console.log(Case.upper("test string")); // TEST STRING
 
 ---
 
-### Object Key Case Conversion
+### 🔹 Object Key Case Conversion
 
-Convert all keys in an object or array of objects to a specific case style.
+Convert keys of an object (or array of objects):
 
 ```js
+const { objToCamel, objToPascal } = require("case-converters");
+
 const input = [{ user_name: "Alice" }, { user_name: "Bob" }];
 
-const {
-  objToCamel,
-  objToCapital,
-  objToConstant,
-  objToNot,
-  objToPascal,
-  objToPath,
-  objToSentence,
-  objToSnake,
-  objToTrain,
-  objToKebab,
-  objToSponge,
-  objToSwap,
-  objToTitle,
-  objToUpper,
-  objToLower,
-} = require("case-converters");
-
 console.log(objToCamel(input));
-console.log(objToCapital(input));
-console.log(objToConstant(input));
+console.log(objToPascal(input));
 ```
 
 ---
 
-## API Reference
+## 📘 API Reference
 
-### String Methods
+### 🔹 String Methods
 
 You can use either the `Case` class or direct function imports:
 
@@ -134,43 +108,25 @@ import {
 const str = "test string";
 
 camel(str);
-capital(str);
-constant(str);
-dot(str);
-no(str);
 pascal(str);
-path(str);
-sentence(str);
 snake(str);
-train(str);
-kebab(str);
-sponge(str);
-swap(str);
-title(str);
-upper(str);
-localeUpper(str);
-lower(str);
-localeLower(str);
-lowerFirst(str);
-upperFirst(str);
-isUpper(str);
-isLower(str);
+// ...
 ```
 
-Or use the `Case` class:
+Or use the class style:
 
 ```ts
 import { Case } from "case-converters";
 
-Case.camel(str);
-Case.capital(str);
+Case.kebab(str);
+Case.title(str);
 ```
 
 ---
 
-### Object Key Methods
+### 🔹 Object Key Methods
 
-Available functions for converting object keys:
+Available functions:
 
 - `objToCamel(obj)`
 - `objToPascal(obj)`
@@ -198,29 +154,29 @@ console.log(objToCamel(obj));
 
 ---
 
-## Live Demo
+## 🌐 Live Demo
 
 Try it online:  
 👉 [StackBlitz Live Demo](https://stackblitz.com/edit/typescript-t3wjttc4?file=index.ts)
 
 ---
 
-## Links
+## 🔗 Links
 
-- **GitHub Repository:** https://github.com/cvchauhan/case-converter
-- **NPM Package:** https://www.npmjs.com/package/case-converters
-
----
-
-## License
-
-ISC © Chirag Chauhan
+- 🧠 **GitHub**: [cvchauhan/case-converter](https://github.com/cvchauhan/case-converter)
+- 📦 **npm**: [case-converters](https://www.npmjs.com/package/case-converters)
 
 ---
 
-## Contact
+## 📄 License
+
+ISC © [Chirag Chauhan](https://github.com/cvchauhan)
+
+---
+
+## 📬 Contact
 
 For questions, suggestions, or collaborations:
 
 - GitHub: [@cvchauhan](https://github.com/cvchauhan)
-- Email: cvchauhan.dev@gmail.com
+- Email: [chiragvchauhan93@gmail.com](mailto:chiragvchauhan93@gmail.com)
